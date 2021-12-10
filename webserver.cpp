@@ -8,6 +8,7 @@ WebServer::WebServer()
     //root文件夹路径
     char server_path[200];
     getcwd(server_path, 200);
+    // TODO: Should it be hard code here?
     char root[6] = "/root";
     m_root = (char *)malloc(strlen(server_path) + strlen(root) + 1);
     strcpy(m_root, server_path);
@@ -197,6 +198,7 @@ void WebServer::deal_timer(util_timer *timer, int sockfd)
     LOG_INFO("close fd %d", users_timer[sockfd].sockfd);
 }
 
+// TODO: client :(
 bool WebServer::dealclinetdata()
 {
     struct sockaddr_in client_address;

@@ -1,3 +1,4 @@
+// TODO: check the following definition is the best practice or not
 #ifndef CONFIG_H
 #define CONFIG_H
 
@@ -13,34 +14,37 @@ public:
 
     void parse_arg(int argc, char*argv[]);
 
-    //端口号
+    // TODO: check the usage of these useful settings
+
     int PORT;
 
-    //日志写入方式
+    // log mode
+    // TODO: Is the naming rule of variables right?
     int LOGWrite;
 
-    //触发组合模式
+    // trigger mode
     int TRIGMode;
 
-    //listenfd触发模式
+    // listenfd trigger
     int LISTENTrigmode;
 
-    //connfd触发模式
+    // connfd trigger
     int CONNTrigmode;
 
-    //优雅关闭链接
+    // TODO: why this way is elegant?
     int OPT_LINGER;
 
-    //数据库连接池数量
+    // sql connection num
     int sql_num;
 
-    //线程池内的线程数量
+    // thread num
     int thread_num;
 
-    //是否关闭日志
+    // use log or not
+    // TODO: use enable to set this thing
     int close_log;
 
-    //并发模型选择
+    // TODO: use concurrency mode to replace this
     int actor_model;
 };
 
