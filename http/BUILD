@@ -11,15 +11,16 @@ cc_library(
     ],
 )
 
+# TODO: Solve the circular dependency
 cc_library(
     name = "http-hdr",
     hdrs = [
         ":http_conn.h",
     ],
     deps = [
+        "//CGImysql:CGImysql-lib",
         "//lock:lock-lib",
         "//log:log-lib",
-        "//CGImysql:CGImysql-lib",
         "//timer:timer-hdr",
     ],
 )
