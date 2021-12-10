@@ -6,7 +6,7 @@ cc_library(
         ":threadpool.h",
     ],
     deps = [
-        "//lock:lock-lib",
         "//CGImysql:CGImysql-lib",
+        "//lock:lock-lib",
     ],
 )

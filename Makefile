@@ -13,3 +13,6 @@ server: main.cpp  ./timer/lst_timer.cpp ./http/http_conn.cpp ./log/log.cpp ./CGI
 
 clean:
 	rm  -r server
+
+format:
+	find ./ -iname '*.h' -o -iname '*.cpp' | xargs clang-format -sort-includes -i
