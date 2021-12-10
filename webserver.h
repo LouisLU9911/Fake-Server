@@ -15,10 +15,12 @@
 #include "threadpool/threadpool.h"
 #include "http/http_conn.h"
 
+// TODO: Can these const vars be set by config and put these const vars into a place?
 const int MAX_FD = 65536;           //最大文件描述符
 const int MAX_EVENT_NUMBER = 10000; //最大事件数
 const int TIMESLOT = 5;             //最小超时单位
 
+// TODO: Is this class's interface well enough to understand or use?
 class WebServer
 {
 public:
@@ -44,7 +46,7 @@ public:
     void dealwithwrite(int sockfd);
 
 public:
-    //基础
+    // TODO: check the vars' names are understandable
     int m_port;
     char *m_root;
     int m_log_write;
@@ -55,18 +57,19 @@ public:
     int m_epollfd;
     http_conn *users;
 
-    //数据库相关
+    // TODO: This class contains some vars related to the database, is the design well enough?
+    // Can we replace this by some design patterns?
     connection_pool *m_connPool;
-    string m_user;         //登陆数据库用户名
-    string m_passWord;     //登陆数据库密码
-    string m_databaseName; //使用数据库名
+    string m_user;
+    string m_passWord;
+    string m_databaseName;
     int m_sql_num;
 
-    //线程池相关
+    // TODO: See above
     threadpool<http_conn> *m_pool;
     int m_thread_num;
 
-    //epoll_event相关
+    // TODO: See above
     epoll_event events[MAX_EVENT_NUMBER];
 
     int m_listenfd;
@@ -75,7 +78,7 @@ public:
     int m_LISTENTrigmode;
     int m_CONNTrigmode;
 
-    //定时器相关
+    // TODO: See above
     client_data *users_timer;
     Utils utils;
 };

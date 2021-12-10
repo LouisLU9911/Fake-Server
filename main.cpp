@@ -1,40 +1,44 @@
 #include "config.h"
 
+// TODO: use some formatter to reformat the code
+
 int main(int argc, char *argv[])
 {
-    //需要修改的数据库信息,登录名,密码,库名
+    // TODO: move these hard code infos to config files or environments
     string user = "root";
     string passwd = "root";
     string databasename = "yourdb";
 
-    //命令行解析
+    // parse configuration
     Config config;
     config.parse_arg(argc, argv);
 
+    // TODO: check this: Should it include the webserver.h explictly?
+    // Is this way the best practice?
     WebServer server;
 
-    //初始化
+    // setup the server
     server.init(config.PORT, user, passwd, databasename, config.LOGWrite, 
                 config.OPT_LINGER, config.TRIGMode,  config.sql_num,  config.thread_num, 
                 config.close_log, config.actor_model);
     
 
-    //日志
+    // setup logging
     server.log_write();
 
-    //数据库
+    // setup database
     server.sql_pool();
 
-    //线程池
+    // setup thread pool
     server.thread_pool();
 
-    //触发模式
+    // trigger mode
     server.trig_mode();
 
-    //监听
+    // listen to events
     server.eventListen();
 
-    //运行
+    // start a loop to serve
     server.eventLoop();
 
     return 0;
