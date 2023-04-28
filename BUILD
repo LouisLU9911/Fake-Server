@@ -1,11 +1,11 @@
 cc_binary(
     name = "server",
     srcs = [
-        ":config.cpp",
-        ":config.h",
-        ":main.cpp",
-        ":webserver.cpp",
-        ":webserver.h",
+        "config.cpp",
+        "config.h",
+        "main.cpp",
+        "webserver.cpp",
+        "webserver.h",
     ],
     linkopts = [
         "-lpthread",

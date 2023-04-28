@@ -5,7 +5,7 @@ And this repo is used to learn the design and details of a CPP server by the aut
 
 ## Supported platforms
 
-* Ububtu Linux 18.04
+* Ubuntu Linux 18.04
 
 ## Build
 
